@@ -3,134 +3,133 @@
  * @author weft-loom
  * @author_url https://github.com/openweft
  *
- * Marp slide theme inspired by the Institut des Hautes Études
- * Scientifiques (IHES) visual identity : minimalist, mathematical,
- * Bourbaki-sober. Cream background, black ink, thin red accent on
- * lead slides — matches the print signature of the IHES
- * publication series (Publications mathématiques de l'IHÉS).
+ * Marp slide theme for the IHES (Institut des Hautes Études
+ * Scientifiques). Colours sourced from the www.ihes.fr theme
+ * stylesheet (wp-content/themes/ihes/style.css, frequency-counted)
+ * — the dominant brand colour is navy #1c528a (63×) with the
+ * brighter secondary #007ab8 (19×). The earlier "Bourbaki cream
+ * + thin red rule" draft was an aesthetic guess that doesn't
+ * reflect the institution's actual web identity.
  */
 
 @import 'default';
 
+/* Site-validated palette (ihes.fr theme stylesheet, 2026-06 audit).
+ * Raleway is the brand prescribed Google Font. */
 :root {
-  --ihes-bg: #faf6ed;
-  --ihes-ink: #1a1a1a;
-  --ihes-grey: #555555;
-  --ihes-rule: #c8c2b3;
-  --ihes-red: #8b1c1c;
-  --ihes-muted: #7a7568;
+  --ihes-navy:       #1c528a;
+  --ihes-navy-deep:  #0f2a4a;
+  --ihes-blue:       #007ab8;
+  --ihes-paper:      #e5e8e8;
+  --ihes-paper-soft: #d2dde7;
+  --ihes-orange:     #ebb030;
+  --ihes-text:       #2b2b2b;
+  --ihes-muted:      #6b787a;
+  --ihes-bg:         #ffffff;
 }
 
 section {
   background: var(--ihes-bg);
-  color: var(--ihes-ink);
-  font-family: "Cardo", "EB Garamond", "Linux Libertine", "Liberation Serif",
-               "Times New Roman", serif;
-  padding: 64px 84px;
-  font-size: 26px;
+  color: var(--ihes-text);
+  font-family: "Raleway", "Source Sans Pro", "Helvetica Neue", sans-serif;
+  padding: 56px 72px;
+  font-size: 28px;
   line-height: 1.55;
+  font-weight: 400;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  bottom: 0;
+  background: linear-gradient(180deg, var(--ihes-navy) 0%, var(--ihes-blue) 100%);
 }
 
 section::after {
-  content: 'IHES · Institut des Hautes Études Scientifiques';
+  content: 'IHES';
   position: absolute;
-  bottom: 22px;
-  left: 84px;
-  right: 84px;
-  font-size: 12px;
+  bottom: 20px;
+  right: 32px;
+  font-family: "Raleway", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   color: var(--ihes-muted);
-  letter-spacing: 0.12em;
-  border-top: 1px solid var(--ihes-rule);
-  padding-top: 6px;
-  font-variant: small-caps;
 }
 
-h1, h2, h3 {
-  font-family: "Cardo", "EB Garamond", "Liberation Serif", serif;
-  color: var(--ihes-ink);
-  font-weight: 700;
-  letter-spacing: -0.005em;
-}
 h1 {
-  font-size: 2.2em;
-  margin-top: 0;
-  border-bottom: 1px solid var(--ihes-rule);
-  padding-bottom: 0.2em;
+  font-family: "Raleway", sans-serif;
+  color: var(--ihes-navy);
+  font-size: 2.3em;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6em;
 }
-h2 { font-size: 1.5em; }
-h3 { font-size: 1.2em; font-style: italic; color: var(--ihes-grey); }
+h2 {
+  font-family: "Raleway", sans-serif;
+  color: var(--ihes-blue);
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h3 {
+  font-family: "Raleway", sans-serif;
+  color: var(--ihes-navy-deep);
+  font-size: 1.2em;
+  font-weight: 600;
+}
 
 a {
-  color: var(--ihes-ink);
-  border-bottom: 1px dotted var(--ihes-ink);
+  color: var(--ihes-blue);
   text-decoration: none;
+  border-bottom: 1px solid var(--ihes-blue);
 }
 
-em { font-style: italic; }
-strong { font-weight: 700; }
-
 code {
-  background: rgba(0, 0, 0, 0.04);
-  font-family: "JetBrains Mono", "Latin Modern Mono", "Menlo", monospace;
-  font-size: 0.88em;
-  padding: 1px 5px;
+  background: var(--ihes-paper);
+  color: var(--ihes-navy);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: "JetBrains Mono", "Menlo", monospace;
+  font-size: 0.9em;
 }
 
 pre code {
-  background: #f3ede0;
-  color: var(--ihes-ink);
-  border-left: 2px solid var(--ihes-ink);
+  background: var(--ihes-navy-deep);
+  color: var(--ihes-paper-soft);
+  border-left: 4px solid var(--ihes-blue);
   display: block;
-  padding: 0.8em 1em;
-  font-size: 0.85em;
+  padding: 1em;
 }
 
 blockquote {
-  border-left: 2px solid var(--ihes-grey);
+  border-left: 3px solid var(--ihes-orange);
   padding-left: 1em;
-  color: var(--ihes-grey);
+  color: var(--ihes-text);
   font-style: italic;
 }
 
-/* MathJax/KaTeX inline formulas read better with a slightly larger
-   x-height — mirrors the printed style of the IHES Publications. */
-.katex { font-size: 1.05em !important; }
+ul li::marker { color: var(--ihes-navy); }
 
 section.lead {
-  background: var(--ihes-bg);
-  color: var(--ihes-ink);
+  background: var(--ihes-navy);
+  color: white;
   text-align: center;
 }
-section.lead::before {
-  content: '';
-  position: absolute;
-  top: 28%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 2px;
-  background: var(--ihes-red);
-}
-section.lead h1 {
-  border: none;
-  font-size: 3em;
-  margin-top: 1.5em;
-}
-section.lead h2 {
-  font-style: italic;
-  font-weight: 400;
-  color: var(--ihes-grey);
-}
+section.lead::before { display: none; }
+section.lead::after { color: rgba(255, 255, 255, 0.7); }
+section.lead h1 { color: white; font-weight: 200; font-size: 3em; }
+section.lead h2 { color: var(--ihes-paper-soft); font-weight: 300; }
 
-table { border-collapse: collapse; margin: 0.8em 0; }
+table { border-collapse: collapse; }
 th {
-  border-bottom: 2px solid var(--ihes-ink);
+  background: var(--ihes-navy);
+  color: white;
   padding: 0.4em 0.8em;
   text-align: left;
-  font-style: italic;
-  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
 }
-td {
-  padding: 0.4em 0.8em;
-  border-bottom: 1px solid var(--ihes-rule);
-}
+td { padding: 0.4em 0.8em; border-bottom: 1px solid var(--ihes-paper); }
