@@ -113,12 +113,40 @@ blockquote {
 
 ul li::marker { color: var(--ihes-navy); }
 
+/* Lead / title slide cover. The theme does not bundle the IHES
+ * logotype file (institutional trademark). The user supplies their
+ * own via the `--ihes-logo` CSS variable :
+ *
+ *   <!-- _class: lead -->
+ *   <!-- _style: "--ihes-logo: url(/path/to/ihes-logo.svg)" -->
+ *
+ * Without that override, the cover renders a typographic wordmark
+ * in the institution's chosen Raleway light face.
+ */
 section.lead {
   background: var(--ihes-navy);
   color: white;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  --ihes-logo: none;
 }
-section.lead::before { display: none; }
+section.lead::before {
+  content: 'IHES';
+  display: block;
+  position: static;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  font-size: 2.2em;
+  letter-spacing: 0.3em;
+  color: white;
+  background: var(--ihes-logo) center / contain no-repeat;
+  background-color: transparent;
+  margin-bottom: 0.8em;
+  min-height: 1.2em;
+}
+section.lead[style*="--ihes-logo"]::before { font-size: 0; min-height: 110px; }
 section.lead::after { color: rgba(255, 255, 255, 0.7); }
 section.lead h1 { color: white; font-weight: 200; font-size: 3em; }
 section.lead h2 { color: var(--ihes-paper-soft); font-weight: 300; }

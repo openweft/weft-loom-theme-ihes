@@ -67,3 +67,23 @@ COPY --from=ghcr.io/openweft/weft-loom-theme-ihes:latest /marp/ihes.css /opt/mar
 BSD-3-Clause (openweft). The IHES name + logo remain the property
 of the Institut des Hautes Études Scientifiques ; this repo
 references the brand only by colour and typography.
+
+## Cover slide / logo
+
+The theme renders a brand-typography wordmark on `section.lead`
+slides ; no institutional logo file is bundled (trademarks remain
+the institution's property and aren't redistributable under
+BSD-3-Clause).
+
+If you have the right to use the official logotype in your deck,
+supply your own image via the `--ihes-logo` CSS variable :
+
+```markdown
+<!-- _class: lead -->
+<!-- _style: "--ihes-logo: url(/path/to/your/logo.svg)" -->
+
+# Title here
+## Subtitle here
+```
+
+Official logo source : https://www.ihes.fr (institutional press contact).
