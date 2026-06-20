@@ -1,3 +1,5 @@
+<p align="center"><img src="https://raw.githubusercontent.com/openweft/brand/main/social/weft-loom-theme-ihes.png" alt="weft-loom-theme-ihes" width="720"></p>
+
 # weft-loom-theme-ihes
 
 `ihes` brand theme for weft-loom compile tooling.
